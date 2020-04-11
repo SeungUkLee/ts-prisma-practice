@@ -1,8 +1,15 @@
 import { Response, Request } from "express";
+import {ArticleManager} from "../managers/article_manager";
 
 class ArticleController {
-    index = async (req: Request, res: Response) => {
+    private articleManager: ArticleManager;
 
+    constructor() {
+        this.articleManager = new ArticleManager();
+    }
+    index = async (req: Request, res: Response) => {
+        const articles = await this.articleManager.getArticles();
+        res.json(articles);
     }
 }
 
