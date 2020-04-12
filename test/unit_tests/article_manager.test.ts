@@ -7,7 +7,7 @@ test("getArticles_noArticlesInDB_emptyList", async () => {
 
     const articles: Article[] = await articleManager.getArticles();
 
-    expect(articles.length).toBe(1);
+    expect(articles.length).toBe(0);
 });
 
 test("getArticles_oneArticleInDB_ListOfOneArticles", async () => {
@@ -16,7 +16,7 @@ test("getArticles_oneArticleInDB_ListOfOneArticles", async () => {
     const articles: Article[] = await articleManager.getArticles();
 
     expect(articles.length).toBe(1);
-})
+});
 
 class EmptyMockRepository implements Repository {
     async articles(): Promise<Article[]> {
